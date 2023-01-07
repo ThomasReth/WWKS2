@@ -28,9 +28,9 @@ At the moment the code is an a development phase. I'm about to check, if the des
 	Encoding encoding = Encoding.UTF8;
 
 	IMessageChannel messageChannel = new TcpMessageChannel(	new XmlMessageSerializer( encoding ),
-															new XmlTokenReader( stream, encoding ),
-															tcpClient.GetStream(),
-															tcpClient  );
+								new XmlTokenReader( stream, encoding ),
+								tcpClient.GetStream(),
+								tcpClient  );
 																	
 	// Then connect it to a message endpoint:
 																	
@@ -43,9 +43,9 @@ At the moment the code is an a development phase. I'm about to check, if the des
 	// Subscribe to publishers for what you want a notfication straight from the beginning.
 
 	this.StorageSystem.Proxy.Subscribe(	( KeepAliveRequest request ) =>
-										{
-											storageSystem.Proxy.SendResponse( new KeepAliveResponse( request ) );
-										}  );
+						{
+							storageSystem.Proxy.SendResponse( new KeepAliveResponse( request ) );
+						}  );
 								
 	// Connect the message endpoint:
 
@@ -54,14 +54,14 @@ At the moment the code is an a development phase. I'm about to check, if the des
 	// Send a hello request to the storage system:
 
 	Subscriber localSubscriber = new(	new[]
-										{
-											Capabilities.StockLocationInfo,
-											Capabilities.KeepAlive,
-										},
-										SubscriberId.DefaultIMS,
-										SubscriberType.IMS,
-										null,
-										"ACME",
-										"ABC"	);
+						{
+							Capabilities.StockLocationInfo,
+							Capabilities.KeepAlive,
+						},
+						SubscriberId.DefaultIMS,
+						SubscriberType.IMS,
+						null,
+						"ACME",
+						"ABC"	);
 
 	HelloResponse helloResponse = storageSystem.SendRequest( new HelloRequest( localSubscriber ) );
