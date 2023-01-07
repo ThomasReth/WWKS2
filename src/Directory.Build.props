@@ -1,0 +1,60 @@
+<Project>
+<!--List of common macros: https://docs.microsoft.com/en-us/cpp/build/reference/common-macros-for-build-commands-and-properties?view=msvc-160&viewFallbackFrom=vs/2019-->
+
+	<PropertyGroup>
+		<GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+
+		<!--Application/General-->
+		<TargetFramework>net7.0</TargetFramework>
+		<Nullable>enable</Nullable>
+
+		<!--Build/Advanced-->
+		<Deterministic>true</Deterministic>
+
+		<!--Build/Output-->
+		<ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+		<UseCommonOutputDirectory>false</UseCommonOutputDirectory>
+
+		<BaseSourcePath Condition="$(SolutionDir) != ''">$(SolutionDir)</BaseSourcePath>
+		<BaseSourcePath Condition="$(SolutionDir) == ''"></BaseSourcePath>
+
+		<BaseOutputPath>$(BaseSourcePath)\..\out\</BaseOutputPath>
+		<BaseIntermediateOutputPath>$(BaseOutputPath)obj\$(MsBuildProjectName)\$(Platform)\$(Configuration)</BaseIntermediateOutputPath>
+		
+		<OutputPath>$(BaseOutputPath)bin\$(Platform)\$(Configuration)</OutputPath>
+		
+		<IntermediateOutputPath>$(BaseIntermediateOutputPath)</IntermediateOutputPath>
+
+		<UnitTestOutputPath>$(BaseOutputPath)tests\unit\$(MSBuildProjectName)\$(Platform)\$(Configuration)</UnitTestOutputPath>
+		<IntegrationTestOutputPath>$(BaseOutputPath)tests\integration\$(MSBuildProjectName)\$(Platform)\$(Configuration)</IntegrationTestOutputPath>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<MaxMajor>$( [System.UInt16]::MaxValue )</MaxMajor>
+		<MaxMinor>$( [System.UInt16]::MaxValue )</MaxMinor>
+		<MaxBuild>$( [System.UInt16]::MaxValue )</MaxBuild>
+		<MaxRevision>$( [MSBuild]::Subtract( $( [System.UInt16]::MaxValue ), 1 ) )</MaxRevision>
+
+		<AssemblyVersionMajor Condition="$(Major) != ''">$( [System.Convert]::ToUInt16( $( [MsBuild]::Modulo( $(Major), $(MaxMajor) ) ) ) )</AssemblyVersionMajor>
+		<AssemblyVersionMajor Condition="$(Major) == ''">0</AssemblyVersionMajor>
+
+		<AssemblyVersionMinor Condition="$(Minor) != ''">$( [System.Convert]::ToUInt16( $( [MsBuild]::Modulo( $(Minor), $(MaxMinor) ) ) ) )</AssemblyVersionMinor>
+		<AssemblyVersionMinor Condition="$(Minor) == ''">0</AssemblyVersionMinor>
+		
+		<AssemblyVersionBuild Condition="$(Build) != ''">$( [System.Convert]::ToUInt16( $( [MsBuild]::Modulo( $(Build), $(MaxBuild) ) ) ) )</AssemblyVersionBuild>
+		<AssemblyVersionBuild Condition="$(Build) == ''">0</AssemblyVersionBuild>
+		
+		<AssemblyVersionRevision Condition="$(Revision) != ''">$( [System.Convert]::ToUInt16( $( [MsBuild]::Modulo( $(Revision), $(MaxRevision) ) ) ) )</AssemblyVersionRevision>
+		<AssemblyVersionRevision Condition="$(Revision) == ''">0</AssemblyVersionRevision>
+
+		<GitCommitHash Condition="$(GitCommitHash) == ''">4711</GitCommitHash>
+
+		<AssemblyVersion>$(AssemblyVersionMajor).$(AssemblyVersionMinor).$(AssemblyVersionBuild).$(AssemblyVersionRevision)</AssemblyVersion>
+		
+		<AssemblyTitle>$(Product), [$(GitCommisHash)]</AssemblyTitle>
+		
+		<Company>Thomas Reth</Company>
+		<Copyright>Copyright © $( [System.DateTime]::UtcNow.Year ), $(Company)</Copyright>
+		<Product>WWKS2 protocol implementation</Product>
+	</PropertyGroup>
+</Project>

@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<ItemGroup>
+	  <PackageReference Include="AutoMapper" Version="12.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Reth.Wwks2.Infrastructure.Serialization.Standard\Reth.Wwks2.Infrastructure.Serialization.Standard.csproj" />
+	  <ProjectReference Include="..\Reth.Wwks2\Reth.Wwks2.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="DataContracts\ArticleMasterSet\" />
+	  <Folder Include="DataContracts\Input\" />
+	  <Folder Include="DataContracts\ConfigurationGet\" />
+	  <Folder Include="DataContracts\InitiateInput\" />
+	  <Folder Include="DataContracts\Output\" />
+	  <Folder Include="DataContracts\StockDeliverySet\" />
+	</ItemGroup>
+	
+</Project>

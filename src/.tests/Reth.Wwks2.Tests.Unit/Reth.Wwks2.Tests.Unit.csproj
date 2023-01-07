@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <OutputPath>$(UnitTestOutputPath)</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JsonDiffPatch.Net" Version="2.3.0" />
+	<PackageReference Include="XMLDiffPatch" Version="1.0.8.28" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.1" />
+    <PackageReference Include="xunit" Version="2.4.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Reth.Wwks2.Protocol.Standard\Reth.Wwks2.Protocol.Standard.csproj" />
+    <ProjectReference Include="..\..\Reth.Wwks2.Protocol\Reth.Wwks2.Protocol.csproj" />
+  </ItemGroup>
+  
+</Project>

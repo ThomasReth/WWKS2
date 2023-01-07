@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<ItemGroup>
+		<PackageReference Include="System.IO.Pipelines" Version="7.0.0" />
+		<PackageReference Include="System.Reactive" Version="5.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Reth.Wwks2.Infrastructure.Serialization\Reth.Wwks2.Infrastructure.Serialization.csproj" />
+	  <ProjectReference Include="..\Reth.Wwks2.Infrastructure.Tokenization\Reth.Wwks2.Infrastructure.Tokenization.csproj" />
+	  <ProjectReference Include="..\Reth.Wwks2.Protocol\Reth.Wwks2.Protocol.csproj" />
+	  <ProjectReference Include="..\Reth.Wwks2\Reth.Wwks2.csproj" />
+	</ItemGroup>
+	
+</Project>

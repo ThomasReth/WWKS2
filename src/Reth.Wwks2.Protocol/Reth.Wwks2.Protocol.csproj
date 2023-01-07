@@ -1,0 +1,7 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Reth.Wwks2\Reth.Wwks2.csproj" />
+	</ItemGroup>
+	
+</Project>

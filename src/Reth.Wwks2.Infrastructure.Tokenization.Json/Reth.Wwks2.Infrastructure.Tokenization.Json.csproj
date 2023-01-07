@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<ItemGroup>
+	  <PackageReference Include="AutoMapper" Version="12.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Reth.Wwks2.Infrastructure.Tokenization\Reth.Wwks2.Infrastructure.Tokenization.csproj" />
+	  <ProjectReference Include="..\Reth.Wwks2\Reth.Wwks2.csproj" />
+	</ItemGroup>
+	
+</Project>
