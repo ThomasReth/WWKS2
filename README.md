@@ -10,7 +10,7 @@ Key features are:
 - The library is extendible. Basically it provides you with the standard implementation of the WWKS2 protocol. If you wish to introduce new dialogs or extend existing ones, this is easily possible.
 
 # Current status
-At the moment the code is an a development phase. So no Beta, RC or even Release status. It should be treated as a technical preview. The next steps are to continue testing and fix the found bugs. It's just a free time project of mine...
+At the moment the code is an a development phase. I'm about to check, if the design fulfills the intended purpose in practice. So major changes may be ahead. It's just a free time project of mine...
 
 # What's coming up next?
 - Increase stability, improve design
@@ -44,7 +44,7 @@ At the moment the code is an a development phase. So no Beta, RC or even Release
 
 	this.StorageSystem.Proxy.Subscribe(	( KeepAliveRequest request ) =>
 										{
-											this.StorageSystem.Proxy.SendResponse( new KeepAliveResponse( request ) );
+											storageSystem.Proxy.SendResponse( new KeepAliveResponse( request ) );
 										}  );
 								
 	// Connect the message endpoint:
